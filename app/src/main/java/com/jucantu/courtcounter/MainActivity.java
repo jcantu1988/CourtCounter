@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         streakTeamA++;
         if(streakTeamA == ON_FIRE_STREAK){
             ImageView onFireImageTeamA = (ImageView) findViewById(R.id.team_a_on_fire);
-            onFireImageTeamA.setVisibility(View.VISIBLE);
+            Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
+            onFireImageTeamA.startAnimation(animation1);
+            //onFireImageTeamA.setVisibility(View.VISIBLE);
         }
 
         displayForTeamA(scoreTeamA);
@@ -81,7 +85,11 @@ public class MainActivity extends AppCompatActivity {
     public void resetOnFireTeamForTeamB(){
         if(streakTeamB >= ON_FIRE_STREAK){
             ImageView onFireImageTeamB = (ImageView) findViewById(R.id.team_b_on_fire);
-            onFireImageTeamB.setVisibility(View.INVISIBLE);
+           // onFireImageTeamB.setVisibility(View.INVISIBLE);
+           // onFireImageTeamB.clearAnimation();
+
+            Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+            onFireImageTeamB.startAnimation(animation1);
         }
         streakTeamB = 0;
     }
@@ -95,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
         streakTeamB++;
         if(streakTeamB == ON_FIRE_STREAK){
             ImageView onFireImageTeamB = (ImageView) findViewById(R.id.team_b_on_fire);
-            onFireImageTeamB.setVisibility(View.VISIBLE);
+            Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
+            onFireImageTeamB.startAnimation(animation1);
+            //onFireImageTeamB.setVisibility(View.VISIBLE);
         }
 
         displayForTeamB(scoreTeamB);
@@ -136,7 +146,12 @@ public class MainActivity extends AppCompatActivity {
     public void resetOnFireTeamForTeamA(){
         if(streakTeamA >= ON_FIRE_STREAK){
             ImageView onFireImageTeamA = (ImageView) findViewById(R.id.team_a_on_fire);
-            onFireImageTeamA.setVisibility(View.INVISIBLE);
+            //onFireImageTeamA.setVisibility(View.INVISIBLE);
+            //onFireImageTeamA.clearAnimation();
+
+
+            Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+            onFireImageTeamA.startAnimation(animation1);
         }
         streakTeamA = 0;
     }
